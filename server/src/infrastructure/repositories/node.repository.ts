@@ -2,6 +2,7 @@ import { injectable } from "inversify";
 import Node from "../../domain/entities/node.entity";
 import { INodeRepository } from "../../domain/repositories/node.repository";
 import { NodeModel } from "../models/node.schema";
+import { UpdateWriteOpResult } from "mongoose";
 
 @injectable()
 export class NodeRepository implements INodeRepository {
@@ -19,8 +20,19 @@ export class NodeRepository implements INodeRepository {
   }
 
   async getAll(): Promise<Node[]> {
-    const docs = await NodeModel.find();
+    const docs = await NodeModel.find({ isDeleted: false });
     return docs.map(this.map);
+  }
+
+  async getNodeById(id: string): Promise<Node | null> {
+    return await NodeModel.findOne({ _id: id, isDeleted: false });
+  }
+
+  async deleteManyByIds(ids: string[]): Promise<UpdateWriteOpResult> {
+    return await NodeModel.updateMany(
+      { _id: { $in: ids } },
+      { $set: { isDeleted: true } },
+    );
   }
 
   private map(doc: Node): Node {

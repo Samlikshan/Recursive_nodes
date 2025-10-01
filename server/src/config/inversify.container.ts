@@ -5,6 +5,7 @@ import { CreateNodeUseCase } from "../application/node/createNode.usecase";
 import { NodeController } from "../presentation/controllers/node.controller";
 import { INodeRepository } from "../domain/repositories/node.repository";
 import { GetTreeUseCase } from "../application/node/getTree.usecase";
+import { DeleteNodeUseCase } from "../application/node/deleteNode.usecase";
 
 const container = new Container();
 
@@ -22,6 +23,10 @@ container
 container
   .bind<GetTreeUseCase>(TYPES.GetTreeUseCase)
   .to(GetTreeUseCase)
+  .inSingletonScope();
+container
+  .bind<DeleteNodeUseCase>(TYPES.DeleteNodesUseCase)
+  .to(DeleteNodeUseCase)
   .inSingletonScope();
 
 // Controllers
