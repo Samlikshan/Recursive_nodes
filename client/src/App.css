@@ -3,6 +3,9 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  transition: var(--transition-smooth);
 }
 
 .logo {
@@ -35,8 +38,22 @@
 
 .card {
   padding: 2em;
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+  transition: var(--transition-smooth);
+  overflow: hidden;
 }
 
 .read-the-docs {
-  color: #888;
+  color: hsl(var(--muted-foreground));
+  transition: var(--transition-smooth);
+}
+
+/* For smooth expansion, add this if you have collapsible content */
+.card[style*="max-height"] {
+  transition:
+    max-height var(--transition-smooth),
+    padding var(--transition-smooth);
 }

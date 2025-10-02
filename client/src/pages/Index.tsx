@@ -1,33 +1,35 @@
 import { NodeTree } from "@/components/NodeTree";
-import { Network } from "lucide-react";
+import { Navbar } from "@/components/Navbar";
+import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+    <div className="min-h-screen bg-background relative">
+      <BackgroundAnimation />
+      <Navbar />
+
+      <div className="container mx-auto px-4 py-8 max-w-4xl relative">
         {/* Header */}
         <div className="mb-8 text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center">
-              <Network className="h-6 w-6 text-primary" />
-            </div>
-            <h1 className="text-4xl font-bold text-foreground">
-              Node Tree Manager
-            </h1>
-          </div>
-          <p className="text-muted-foreground text-lg">
-            Create and manage recursive node hierarchies with ease
+          <h2 className="text-3xl font-bold text-foreground mb-2">
+            Recursive Node Hierarchies
+          </h2>
+          <p className="text-muted-foreground">
+            Create and manage infinite nested structures with ease
           </p>
         </div>
 
         {/* Tree Container */}
-        <div className="bg-card rounded-xl shadow-lg border border-border p-6">
+        <div className="bg-card/80 backdrop-blur-sm rounded-xl shadow-lg border border-border p-6 hover:shadow-xl transition-shadow duration-300">
           <NodeTree />
         </div>
 
         {/* Footer */}
         <div className="mt-8 text-center text-sm text-muted-foreground">
-          <p>Click the + icon to add children • Click the trash icon to delete nodes</p>
+          <p>
+            Click the + icon to add children • Click the trash icon to delete
+            nodes
+          </p>
         </div>
       </div>
     </div>

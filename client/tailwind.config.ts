@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -54,10 +59,10 @@ export default {
         },
       },
       spacing: {
-        'node-indent': 'var(--node-indent)',
+        "node-indent": "var(--node-indent)",
       },
       transitionProperty: {
-        'smooth': 'var(--transition-smooth)',
+        smooth: "var(--transition-smooth)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -109,6 +114,20 @@ export default {
             opacity: "1",
           },
         },
+        float: {
+          "0%, 100%": {
+            transform: "translate(0, 0) rotate(0deg)",
+          },
+          "25%": {
+            transform: "translate(10px, -10px) rotate(5deg)",
+          },
+          "50%": {
+            transform: "translate(-5px, -20px) rotate(-5deg)",
+          },
+          "75%": {
+            transform: "translate(-10px, -5px) rotate(3deg)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -116,6 +135,7 @@ export default {
         "slide-down": "slide-down 0.2s ease-out",
         "slide-up": "slide-up 0.2s ease-out",
         "fade-in": "fade-in 0.2s ease-out",
+        float: "float 20s infinite ease-in-out",
       },
     },
   },

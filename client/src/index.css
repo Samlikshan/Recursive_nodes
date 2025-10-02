@@ -2,82 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 220 20% 97%;
-    --foreground: 220 15% 20%;
+    --background: 240 10% 8%;
+    --foreground: 250 50% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 20%;
+    --card: 240 10% 12%;
+    --card-foreground: 250 50% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 20%;
+    --popover: 240 10% 12%;
+    --popover-foreground: 250 50% 95%;
 
-    --primary: 239 84% 67%;
+    --primary: 262 83% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 15% 20%;
+    --secondary: 240 10% 18%;
+    --secondary-foreground: 250 50% 95%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 240 10% 18%;
+    --muted-foreground: 240 5% 65%;
 
-    --accent: 239 84% 67%;
+    --accent: 280 80% 65%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 72% 51%;
+    --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 239 84% 67%;
+    --border: 240 10% 18%;
+    --input: 240 10% 18%;
+    --ring: 262 83% 65%;
 
     --radius: 0.75rem;
 
-    --node-bg: 0 0% 100%;
-    --node-hover: 239 84% 97%;
-    --node-border: 220 13% 91%;
-    --node-indent: 1.5rem;
+    --node-bg: 240 10% 12%;
+    --node-hover: 262 83% 20%;
+    --node-border: 240 10% 18%;
 
-    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --gradient-start: 262 83% 35%;
+    --gradient-end: 280 80% 40%;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 20s infinite ease-in-out;
   }
 
-  .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+  .animate-float-delayed {
+    animation: float 25s infinite ease-in-out 5s;
+  }
 
-    --card: 224 71% 8%;
-    --card-foreground: 213 31% 91%;
-
-    --popover: 224 71% 8%;
-    --popover-foreground: 213 31% 91%;
-
-    --primary: 239 84% 67%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 222 47% 11%;
-    --secondary-foreground: 213 31% 91%;
-
-    --muted: 222 47% 11%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 239 84% 67%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 222 47% 11%;
-    --input: 222 47% 11%;
-    --ring: 239 84% 67%;
-
-    --node-bg: 224 71% 8%;
-    --node-hover: 239 84% 15%;
-    --node-border: 222 47% 11%;
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate(10px, -10px) rotate(5deg);
+    }
+    50% {
+      transform: translate(-5px, -20px) rotate(-5deg);
+    }
+    75% {
+      transform: translate(-10px, -5px) rotate(3deg);
+    }
   }
 }
 
