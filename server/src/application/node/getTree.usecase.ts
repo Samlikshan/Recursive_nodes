@@ -13,8 +13,8 @@ export class GetTreeUseCase {
   }
 
   private buildTree(nodes: Node[]): Node[] {
-    const map = new Map<string, any>();
-    const roots: any[] = [];
+    const map = new Map();
+    const roots: Node[] = [];
 
     nodes.forEach((n) => map.set(n._id, { ...n, children: [] }));
 
@@ -26,7 +26,6 @@ export class GetTreeUseCase {
         roots.push(node);
       }
     });
-
     return roots;
   }
 }

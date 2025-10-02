@@ -1,6 +1,8 @@
 import { inject, injectable } from "inversify";
 import { INodeRepository } from "../../domain/repositories/node.repository";
 import TYPES from "../../config/inversify.types";
+import { AppError } from "../errors/AppError";
+import { HttpStatusCodes } from "../constants/HttpStatusCodes";
 
 @injectable()
 export class DeleteNodeUseCase {
@@ -9,7 +11,7 @@ export class DeleteNodeUseCase {
   async execute(nodeId: string) {
     let rootNode = await this.repo.getNodeById(nodeId);
     if (!rootNode) {
-      throw new Error("Node not found");
+      throw new AppError("Node not found", HttpStatusCodes.NOT_FOUND);
     }
 
     const nodeIdsToDelete: string[] = [];
