@@ -55,7 +55,7 @@ export class NodeController {
 
   async deleteNodes(req: Request, res: Response, next: NextFunction) {
     try {
-      const { nodeId } = req.body;
+      const { nodeId } = req.params;
       if (!nodeId) {
         throw new AppError("Node id is required", HttpStatusCodes.BAD_REQUEST);
       }
